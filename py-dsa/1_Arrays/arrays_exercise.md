@@ -17,7 +17,7 @@ Create a list to store these monthly expenses and using that find out,
     got a refund of 200$. Make a correction to your monthly expense list
     based on this
 
-[Solution]
+[Solution] ([https://github.com/imabhishekc/py-practice-sets/blob/main/py-dsa/1_Arrays/practice_set1_1.py]
 
 2. You have a list of your favourite marvel super heros.
 ```
