@@ -11,20 +11,6 @@ class LinkedList:
         node = Node(data, self.head)
         self.head = node
 
-    def print(self):
-        if self.head is None:
-            print("Linked list is empty")
-            return
-        
-        itr = self.head
-        llstr = ''
-
-        while itr:
-            llstr += str(itr.data) + '-->'
-            itr = itr.next
-
-        print(llstr)
-
     def insert_at_end(self, data):
         if self.head is None:
             self.head = Node(data, None)
@@ -86,6 +72,29 @@ class LinkedList:
 
             itr = itr.next
             count += 1
+
+    def insert_after_value(self, data_after, data_to_insert):
+        pass
+        # Search for first occurance of data_after value in linked list
+        # Now insert data_to_insert after data_after node
+
+    def remove_by_value(self, data):
+        pass
+        # Remove first node that contains data
+
+    def print(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+        
+        itr = self.head
+        llstr = ''
+
+        while itr:
+            llstr += str(itr.data) + '-->'
+            itr = itr.next
+
+        print(llstr)
 
 if __name__ == '__main__':
     ll = LinkedList()
