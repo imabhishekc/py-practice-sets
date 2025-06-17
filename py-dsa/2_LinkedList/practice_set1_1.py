@@ -74,13 +74,31 @@ class LinkedList:
             count += 1
 
     def insert_after_value(self, data_after, data_to_insert):
-        pass
-        # Search for first occurance of data_after value in linked list
-        # Now insert data_to_insert after data_after node
+        itr = self.head
+        while itr:
+            if itr.data == data_after:
+                node = Node(data_to_insert, itr.next)
+                itr.next = node
+                return
+            
+            itr = itr.next
+        print(f"Value '{data_after}' not found in list")
 
     def remove_by_value(self, data):
-        pass
-        # Remove first node that contains data
+        if self.head is None:
+            return
+        
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+
+        itr = self.head
+        while itr.next:
+            if itr.next.data == data:
+                itr.next = itr.next.next
+                return
+            
+            itr = itr.next
 
     def print(self):
         if self.head is None:
@@ -99,18 +117,36 @@ class LinkedList:
 if __name__ == '__main__':
     ll = LinkedList()
     ll.insert_values(['lion', 'tiger', 'leopard'])
-    ll.print()
+    ll.print()                                  # lion-->tiger-->leopard-->
 
     ll.insert_at_beginning('panther')
-    ll.print()
+    ll.print()                                  # panther-->lion-->tiger-->leopard-->
 
     ll.insert_at_end('cheetah')
-    ll.print()
+    ll.print()                                  # panther-->lion-->tiger-->leopard-->cheetah-->
 
     ll.insert_at(2, 'cat')
-    ll.print()
+    ll.print()                                  # panther-->lion-->cat-->tiger-->leopard-->cheetah--> 
 
     ll.remove_at(3)
-    ll.print()
+    ll.print()                                  # panther-->lion-->cat-->leopard-->cheetah-->
 
-    print("Length:", ll.get_length())
+    print("Length:", ll.get_length())           # prints 'Length: 5'
+
+    ll.insert_values(["banana","mango","grapes","orange"])
+    ll.print()                                  # banana-->mango-->grapes-->orange-->
+
+    ll.insert_after_value("mango","apple")      # insert apple after mango
+    ll.print()                                  # banana-->mango-->apple-->grapes-->orange-->
+
+    ll.remove_by_value("orange")                # remove orange
+    ll.print()                                  # banana-->mango-->apple-->grapes-->
+
+    ll.remove_by_value("figs")                  # remove figs (It is not in the list so nothing happens)
+    ll.print()                                  # banana-->mango-->apple-->grapes-->
+
+    ll.remove_by_value("banana")
+    ll.remove_by_value("mango")
+    ll.remove_by_value("apple")
+    ll.remove_by_value("grapes")
+    ll.print()                                  # prints 'Linked list is empty'
