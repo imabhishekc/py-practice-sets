@@ -1,8 +1,5 @@
 """Implementing doubly linked list."""
 
-from tkinter import NO
-
-
 class Node:
     def __init__(self, data=None, next=None, prev=None):
         self.data = data
