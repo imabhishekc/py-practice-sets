@@ -13,6 +13,27 @@ class DoublyLinkedList:
     def insert_at_beginning(self, data):
         node = Node(data, self.head)
         self.head = node
+
+    def insert_at_end(self, data):
+        pass
+
+    def insert_values(self, data_list):
+        pass
+
+    def get_length(self):
+        pass
+
+    def remove_at(self, index):
+        pass
+
+    def insert_at(self, index, data):
+        pass
+
+    def insert_after_value(self, data_after, data_to_insert):
+        pass
+
+    def remove_by_value(self, data):
+        pass
     
     def print_forward(self):
         # This method prints list in forward direction. Use node.next
