@@ -1,5 +1,8 @@
 """Implementing doubly linked list."""
 
+from tkinter import NO
+
+
 class Node:
     def __init__(self, data=None, next=None, prev=None):
         self.data = data
@@ -22,13 +25,29 @@ class DoublyLinkedList:
         self.head = node
 
     def insert_at_end(self, data):
-        pass
+        if self.head is None:
+            self.insert_at_beginning(data)
+            return
+        
+        node = Node(data)
+        self.tail.next = node
+        node.prev = self.tail
+        self.tail = node
 
     def insert_values(self, data_list):
-        pass
+        self.head = None
+        self.tail = None
+        for data in data_list:
+            self.insert_at_end(data)
 
     def get_length(self):
-        pass
+        count = 0
+        itr = self.head
+        while itr:
+            count += 1
+            itr = itr.next
+        
+        return count
 
     def remove_at(self, index):
         pass
@@ -62,5 +81,11 @@ class DoublyLinkedList:
 if __name__ == '__main__':
     dll = DoublyLinkedList()
     dll.insert_at_beginning(23)
+    dll.insert_at_end(54)
     dll.print_forward()
     dll.print_backward()
+    print("length:", dll.get_length())
+    dll.insert_values(['lion', 'tiger', 'leopard', 'panther'])
+    dll.print_forward()
+    dll.print_backward()
+    print("length:", dll.get_length())
